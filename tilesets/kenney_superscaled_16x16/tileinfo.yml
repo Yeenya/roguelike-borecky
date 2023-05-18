@@ -1,0 +1,108 @@
+# Kenney's tileset
+---
+name: Kenney
+size: 32
+files:
+  - name: tiles.png
+    tilesPerRow: 10
+    tiles:
+      - name: Wall 1
+      - name: Wall 2
+      - name: Gate 1
+      - name: Wall 3
+      - name: Human
+      - name: Adventurer
+      - name: Human hands up
+      - name: Human female
+      - name: Golem
+      - name: Orc
+      - name: Wall 4
+      - name: Black
+      - name: Pressure plate
+      - name: Wall 5
+      - name: Snake
+      - name: Dog
+      - name: Rat
+      - name: Crab
+      - name: Head
+      - name: Ghost
+      - name: Wall 6
+      - name: Wall 7 hole
+      - name: Gate 2
+      - name: Wall 7
+      - name: Door closed
+      - name: Door open
+      - name: Ladder
+      - name: Sack
+      - name: Pot
+      - name: Pot small
+      - name: Wall 8
+      - name: Wall 9
+      - name: Wall 10
+      - name: Wall 11
+      - name: Stairs down
+      - name: Stairs up
+      - name: Sign
+      - name: Table
+      - name: Stool
+      - name: Chest
+      - name: Wall 12
+      - name: Wall 13
+      - name: Wall 14
+      - name: Wall 15
+      - name: Grass
+      - name: Flowers
+      - name: Sword
+      - name: Axe
+      - name: Bow
+      - name: Armor
+      - name: Wall 16
+      - name: Wall 17
+      - name: Wall 18
+      - name: Wall 19
+      - name: Tree 1
+      - name: Tree 2
+      - name: Trees
+      - name: Key
+      - name: Meat
+      - name: Ring
+      - name: Hole wood
+      - name: Hole
+      - name: Wall 20
+      - name: Arrow small
+      - name: Heart empty
+      - name: Heart half full
+      - name: Heart full
+      - name: Shield empty
+      - name: Shield half full
+      - name: Shield
+      - name: Arrow start
+      - name: Arrow line
+      - name: Arrow turn
+      - name: Arrow end
+      - name: Exclamation mark
+      - name: House
+      - name: Tower
+      - name: Teepee
+      - name: Cross
+      - name: Boat
+      - name: Spell
+      - name: Warp
+      - name: Moon
+      - name: Star
+      - name: Sparkles
+      - name: Wound
+      - name: Wounds
+      - name: Potion
+      - name: Signpost
+      - name: Campfire
+      - name: Wall thick S E
+      - name: Wall thick W E
+      - name: Gate thick
+      - name: Wall thick S W
+      - name: Wall thick N S
+      - name: Wall thick open N S
+      - name: Wall thick N E
+      - name: Wall thick hole
+      - name: Gate thick 2
+      - name: Wall thick N W

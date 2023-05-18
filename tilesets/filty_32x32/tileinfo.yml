@@ -1,0 +1,136 @@
+# Filty's tileset
+---
+name: Filty
+size: 32
+files:
+  - name: tiles.png
+    tilesPerRow: 10
+    tiles:
+      - name: Hero with sword
+      - name: Hero with goblin meat
+      - name: Hero with bucket
+      - name: Goblin
+      - name: Dragon
+      - name: Well
+      - name: Bucket
+      - name: Goblin meat
+      - name: Sword
+      - name: Floor
+      - name: Wall north east south west
+      - name: Hero dead
+      - name: Dragon dead
+      - name: Wall north east west
+      - name: Wall north east
+      - name: Wall north west
+      - name: Wall north east south
+      - name: Wall north south west
+      - name: Wall east south west
+      - name: Wall east west
+      - name: Wall east
+      - name: Wall west
+      - name: Wall east south
+      - name: Wall south west
+      - name: Wall under
+      - name: Prince
+      - name: Hero with prince
+      - name: Princess
+      - name: Hero with princess
+      - name: Wall north
+      - name: Wall north south
+      - name: Wall south
+      - name: Wall
+      - name: Goblin village
+      - name: Hero
+      - name: Hero with filled bucket
+      - name: Tree1 TL
+      - name: Tree1 TR
+      - name: Tree1 BL
+      - name: Tree1 BR
+      - name: Tree2 TL
+      - name: Tree2 TR
+      - name: Tree2 BL
+      - name: Tree2 BR
+      - name: Tree3 TL
+      - name: Tree3 TR
+      - name: Tree3 BL
+      - name: Tree3 BR
+      - name: Tree4 TL
+      - name: Tree4 TR
+      - name: Tree4 BL
+      - name: Tree4 BR
+      - name: PLACEHOLDER40
+      - name: PLACEHOLDER41
+      - name: PLACEHOLDER42
+      - name: PLACEHOLDER43
+      - name: PLACEHOLDER44
+      - name: PLACEHOLDER45
+      - name: PLACEHOLDER46
+      - name: PLACEHOLDER47
+      - name: PLACEHOLDER48
+      - name: PLACEHOLDER49
+      - name: PLACEHOLDER50
+      - name: PLACEHOLDER51
+      - name: PLACEHOLDER52
+      - name: PLACEHOLDER53
+      - name: PLACEHOLDER54
+      - name: PLACEHOLDER55
+      - name: PLACEHOLDER56
+      - name: PLACEHOLDER57
+      - name: PLACEHOLDER58
+      - name: PLACEHOLDER59
+      - name: PLACEHOLDER60
+      - name: PLACEHOLDER61
+      - name: PLACEHOLDER62
+      - name: PLACEHOLDER63
+      - name: PLACEHOLDER64
+      - name: PLACEHOLDER65
+      - name: PLACEHOLDER66
+      - name: PLACEHOLDER67
+      - name: PLACEHOLDER68
+      - name: PLACEHOLDER69
+      - name: PLACEHOLDER70
+      - name: PLACEHOLDER71
+      - name: PLACEHOLDER72
+      - name: PLACEHOLDER73
+      - name: PLACEHOLDER74
+      - name: PLACEHOLDER75
+      - name: PLACEHOLDER76
+      - name: PLACEHOLDER77
+      - name: PLACEHOLDER78
+      - name: PLACEHOLDER79
+      - name: PLACEHOLDER80
+      - name: PLACEHOLDER81
+      - name: PLACEHOLDER82
+      - name: PLACEHOLDER83
+      - name: PLACEHOLDER84
+      - name: PLACEHOLDER85
+      - name: PLACEHOLDER86
+      - name: PLACEHOLDER87
+  - name: fireball.png
+    tilesPerRow: 10
+    tiles:
+      - name: Fireball0
+      - name: Fireball1
+      - name: Fireball2
+      - name: Fireball3
+      - name: Fireball4
+      - name: Fireball5
+      - name: Fireball6
+      - name: Fireball7
+      - name: Fireball8
+      - name: Fireball9
+      - name: Fireball10
+      - name: Fireball11
+      - name: Fireball12
+      - name: Fireball13
+      - name: Fireball14
+      - name: Fireball15
+      - name: Fireball16
+      - name: Fireball17
+      - name: Fireball18
+      - name: Fireball19
+      - name: Fireball20
+      - name: Fireball21
+      - name: Fireball22
+      - name: Fireball23
+      - name: Fireball24
