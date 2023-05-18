@@ -1,4 +1,5 @@
 package cz.cuni.gamedev.nail123.roguelike.world
+import org.hexworks.zircon.api.data.Position3D
 import kotlin.math.sqrt
 
 data class Room(val x: Int, val y: Int, val width: Int, val height: Int) {
@@ -31,6 +32,10 @@ data class Room(val x: Int, val y: Int, val width: Int, val height: Int) {
             }
         }
         return closestRoom
+    }
+
+    fun getRoomCenter(): Position3D {
+        return Position3D.create(x + width / 2, y + height / 2, 0)
     }
 }
 
