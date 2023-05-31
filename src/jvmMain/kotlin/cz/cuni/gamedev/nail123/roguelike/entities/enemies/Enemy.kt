@@ -5,6 +5,7 @@ import cz.cuni.gamedev.nail123.roguelike.entities.MovingEntity
 import cz.cuni.gamedev.nail123.roguelike.entities.Player
 import cz.cuni.gamedev.nail123.roguelike.entities.attributes.*
 import cz.cuni.gamedev.nail123.roguelike.mechanics.Combat
+import cz.cuni.gamedev.nail123.roguelike.mechanics.LootSystem
 import org.hexworks.zircon.api.data.Tile
 
 abstract class Enemy(tile: Tile): MovingEntity(tile), HasCombatStats, Interactable, Interacting {
@@ -17,4 +18,10 @@ abstract class Enemy(tile: Tile): MovingEntity(tile), HasCombatStats, Interactab
     override fun interactWith(other: GameEntity, type: InteractionType) = interactionContext(other, type) {
         withEntity<Player>(InteractionType.BUMPED) { player -> Combat.attack(this@Enemy, player) }
     }
+
+    override fun die() {
+        super.die()
+        LootSystem.onDeath(this)
+    }
+
 }

@@ -22,6 +22,7 @@ class Inventory(val player: Player) {
     data class EquipResult(val success: Boolean, val errorMessage: String) {
         companion object {
             val Success = EquipResult(true, "")
+            val Failure = EquipResult(false, "Item cannot be equipped")
         }
     }
     private val _items = ArrayList<Item>()

@@ -3,6 +3,7 @@ package cz.cuni.gamedev.nail123.roguelike.world.worlds
 import cz.cuni.gamedev.nail123.roguelike.blocks.Floor
 import cz.cuni.gamedev.nail123.roguelike.blocks.Wall
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Rat
+import cz.cuni.gamedev.nail123.roguelike.entities.items.Potion
 import cz.cuni.gamedev.nail123.roguelike.entities.items.Sword
 import cz.cuni.gamedev.nail123.roguelike.entities.objects.Stairs
 import cz.cuni.gamedev.nail123.roguelike.entities.unplacable.FogOfWar
@@ -115,35 +116,8 @@ class SampleWorld: World() {
             roomsMissingConnection = searchConnections(rooms)
         }
 
-        /*
-        // Spawn player in a random room
-        areaBuilder.addAtEmptyPosition(
-                areaBuilder.player,
-                Position3D.create(rooms[0].x, rooms[0].y, 0),
-                Size3D.create(areaBuilder.width / 2 - 2, areaBuilder.height / 2 - 2, 1)
-        )
-
-        // Add stairs to a room which is the most distant from the player room
-        areaBuilder.addAtEmptyPosition(
-                Stairs(),
-                Position3D.create(rooms[0].sortedRooms.last().x, rooms[0].sortedRooms.last().y, 0),
-                Size3D.create(areaBuilder.width / 2 - 2, areaBuilder.height / 2 - 2, 1)
-        )
-
-        // Add some rats to random rooms each level
-        repeat(currentLevel + 1) {
-            val randomRoom = rooms.random()
-            areaBuilder.addAtEmptyPosition(Rat(), Position3D.create(randomRoom.x, randomRoom.y, 0), areaBuilder.size)
-        }
-
-        // Add a sword to every level with increasing attackPower
-        val randomRoom = rooms.random()
-        areaBuilder.addAtEmptyPosition(Sword(currentLevel * 2), Position3D.create(randomRoom.x, randomRoom.y, 0), areaBuilder.size)
-        */
-
         areaBuilder.addEntity(areaBuilder.player, rooms[0].getRoomCenter())
 
-        //areaBuilder.addEntity(Stairs(), rooms[0].sortedRooms.last().getRoomCenter())
         val stairPosition = Pathfinding.floodFill(areaBuilder.player.position, areaBuilder)
             .run { val minDistance = values.max() * 0.8; filter { it.value >= minDistance} }
             .keys.random()
@@ -154,6 +128,12 @@ class SampleWorld: World() {
             val randomRoom = rooms.random()
             val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
             areaBuilder.addEntity(Rat(), randomRoom.getRoomCenter() + randomOffset)
+        }
+
+        repeat((currentLevel + 1)) {
+            val randomRoom = rooms.random()
+            val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
+            areaBuilder.addEntity(Potion(1), randomRoom.getRoomCenter() + randomOffset)
         }
 
         // Add a sword to every level with increasing attackPower
