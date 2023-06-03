@@ -11,15 +11,15 @@ import cz.cuni.gamedev.nail123.roguelike.mechanics.goSmartlyTowards
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 import kotlin.random.Random
 
-class Orc: Enemy(GameTiles.ORC), HasVision {
+class Golem: Enemy(GameTiles.GOLEM), HasVision {
     // It's up to you to decide whether you want Orcs to cast shadows
     override val blocksVision = false
     override val maxHitpoints = 15
     override var hitpoints = 15
-    override var attack = 5
-    override var defense = 2
+    override var attack = 7
+    override var defense = 4
 
-    override val visionRadius = 7
+    override val visionRadius = 5
 
     var hasSeenPlayer = false
 

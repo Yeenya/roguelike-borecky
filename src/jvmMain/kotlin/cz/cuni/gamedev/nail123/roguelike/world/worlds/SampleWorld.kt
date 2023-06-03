@@ -2,7 +2,10 @@ package cz.cuni.gamedev.nail123.roguelike.world.worlds
 
 import cz.cuni.gamedev.nail123.roguelike.blocks.Floor
 import cz.cuni.gamedev.nail123.roguelike.blocks.Wall
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Golem
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Orc
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Rat
+import cz.cuni.gamedev.nail123.roguelike.entities.items.Armor
 import cz.cuni.gamedev.nail123.roguelike.entities.items.Potion
 import cz.cuni.gamedev.nail123.roguelike.entities.items.Sword
 import cz.cuni.gamedev.nail123.roguelike.entities.objects.Stairs
@@ -121,25 +124,41 @@ class SampleWorld: World() {
         val stairPosition = Pathfinding.floodFill(areaBuilder.player.position, areaBuilder)
             .run { val minDistance = values.max() * 0.8; filter { it.value >= minDistance} }
             .keys.random()
-        areaBuilder.addEntity(Stairs(), stairPosition)
+        if (currentLevel <= 5) {
+            areaBuilder.addEntity(Stairs(), stairPosition)
+        } else {
+            areaBuilder.addEntity(Golem(), stairPosition)
+        }
 
         // Add some rats to random rooms each level
-        repeat(currentLevel + 1) {
+        val ratCount = if (currentLevel == 0) 1 else currentLevel
+        repeat(ratCount * 2) {
             val randomRoom = rooms.random()
             val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
             areaBuilder.addEntity(Rat(), randomRoom.getRoomCenter() + randomOffset)
         }
 
-        repeat((currentLevel + 1)) {
-            val randomRoom = rooms.random()
-            val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
-            areaBuilder.addEntity(Potion(1), randomRoom.getRoomCenter() + randomOffset)
+        // Add orc(s) to advanced levels
+        if (currentLevel > 1)
+        {
+            repeat(currentLevel) {
+                val randomRoom = rooms.random()
+                val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
+                areaBuilder.addEntity(Orc(), randomRoom.getRoomCenter() + randomOffset)
+            }
         }
 
-        // Add a sword to every level with increasing attackPower
-        val randomRoom = rooms.random()
-        val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
-        areaBuilder.addEntity(Sword(currentLevel * 2), randomRoom.getRoomCenter() + randomOffset)
+        repeat(currentLevel) {
+            val randomRoom = rooms.random()
+            val randomOffset = Position3D.create(random.nextInt(-randomRoom.width / 2, randomRoom.width / 2), random.nextInt(-randomRoom.height / 2, randomRoom.height / 2), 0)
+            areaBuilder.addEntity(Potion(random.nextInt(1, 4)), randomRoom.getRoomCenter() + randomOffset)
+        }
+
+        if (random.nextInt() % 2 == 0) {
+            val armorRoom = rooms.random()
+            val armorOffset = Position3D.create(random.nextInt(-armorRoom.width / 2, armorRoom.width / 2), random.nextInt(-armorRoom.height / 2, armorRoom.height / 2), 0)
+            areaBuilder.addEntity(Armor(random.nextInt(1, currentLevel * 2 + 2)), armorRoom.getRoomCenter() + armorOffset)
+        }
 
         // We add fog of war such that exploration is needed
         areaBuilder.addEntity(FogOfWar(), Position3D.unknown())

@@ -4,7 +4,7 @@ import cz.cuni.gamedev.nail123.roguelike.entities.Player
 import cz.cuni.gamedev.nail123.roguelike.entities.attributes.HasInventory
 import cz.cuni.gamedev.nail123.roguelike.tiles.GameTiles
 
-class Sword(val attackPower: Int): Weapon(GameTiles.SWORD) {
+class Axe(val attackPower: Int): Weapon(GameTiles.AXE) {
     override fun onEquip(character: HasInventory) {
         if (character is Player) {
             character.attack += attackPower
@@ -18,8 +18,8 @@ class Sword(val attackPower: Int): Weapon(GameTiles.SWORD) {
     }
 
     override fun toString(): String {
-        return "Sword($attackPower)"
+        return "Axe($attackPower)"
     }
 
-    override val criticalStrikeChance = 0.1f
+    override val criticalStrikeChance = 0.25f
 }

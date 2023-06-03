@@ -10,4 +10,6 @@ abstract class Weapon(tile: Tile): Item(tile) {
             Inventory.EquipResult(false, "Cannot equip two weapons")
         } else Inventory.EquipResult.Success
     }
+
+    abstract val criticalStrikeChance: Float
 }

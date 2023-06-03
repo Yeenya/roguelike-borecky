@@ -2,8 +2,12 @@ package cz.cuni.gamedev.nail123.roguelike.mechanics
 
 import cz.cuni.gamedev.nail123.roguelike.entities.Player
 import cz.cuni.gamedev.nail123.roguelike.entities.attributes.HasCombatStats
+import cz.cuni.gamedev.nail123.roguelike.entities.items.Axe
+import cz.cuni.gamedev.nail123.roguelike.entities.items.Weapon
 import cz.cuni.gamedev.nail123.roguelike.events.logMessage
 import kotlin.math.max
+import kotlin.random.Random
+import kotlin.reflect.typeOf
 
 object Combat {
     /**
@@ -11,7 +15,19 @@ object Combat {
      * Meant to be expanded.
      */
     fun attack(attacker: HasCombatStats, defender: HasCombatStats) {
-        val damage = max(attacker.attack - defender.defense, 0)
+        var damage = max(attacker.attack - defender.defense, 0)
+        if ((attacker is Player)) {
+            var critChance = 0f
+            for (item in attacker.inventory.equipped) {
+                if (item is Weapon) {
+                    critChance = item.criticalStrikeChance
+                }
+            }
+            if (Random.nextFloat() <= critChance) {
+                damage *= 2
+                this.logMessage("Critical hit!")
+            }
+        }
         defender.takeDamage(damage)
 
         when {
@@ -20,4 +36,5 @@ object Combat {
             else -> this.logMessage("$attacker hits $defender for $damage damage!")
         }
     }
+
 }

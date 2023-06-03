@@ -1,11 +1,10 @@
 package cz.cuni.gamedev.nail123.roguelike.mechanics
 
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Enemy
+import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Golem
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Orc
 import cz.cuni.gamedev.nail123.roguelike.entities.enemies.Rat
-import cz.cuni.gamedev.nail123.roguelike.entities.items.Item
-import cz.cuni.gamedev.nail123.roguelike.entities.items.Sword
-import cz.cuni.gamedev.nail123.roguelike.entities.items.Potion
+import cz.cuni.gamedev.nail123.roguelike.entities.items.*
 import kotlin.random.Random
 
 object LootSystem {
@@ -47,21 +46,31 @@ object LootSystem {
     // Sword with power 5-6
     val rareSword = SingleDrop { Sword(rng.nextInt(2) + 5) }
 
+    val basicAxe = SingleDrop { Axe(rng.nextInt(3) + 3) }
+    val rareAxe = SingleDrop { Axe(rng.nextInt(4) + 7) }
+
     val basicPotion = SingleDrop { Potion(rng.nextInt(1, 3))}
     val rarePotion = SingleDrop { Potion(rng.nextInt(5, 10))}
+
+    val key = SingleDrop { FinishKey()}
 
     val enemyDrops = mapOf(
         Rat::class to TreasureClass(1, listOf(
             3 to NoDrop,
-            1 to basicSword,
-            1 to basicPotion
+            2 to basicSword,
+            1 to basicPotion,
+            1 to basicAxe
         )),
         Orc::class to TreasureClass(1, listOf(
-            4 to NoDrop,
-            2 to basicSword,
-            1 to rareSword,
-            2 to basicPotion,
-            1 to rarePotion
+            3 to basicSword,
+            2 to rareSword,
+            3 to basicPotion,
+            2 to rarePotion,
+            2 to basicAxe,
+            1 to rareAxe
+        )),
+        Golem::class to TreasureClass(1, listOf(
+            1 to key
         ))
     )
 
